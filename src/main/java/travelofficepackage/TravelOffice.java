@@ -101,17 +101,38 @@ public class TravelOffice {
 
         }
      */
-   public void showCustomers()
+   public String showCustomers()
    {
-       /*StringBuilder sb = new StringBuilder();
-        for(travelofficepackage.Customer c : customers)
-            System.out.println(c.toString());
-        */
-        customers.stream().forEach(System.out::println);
-   }
-    public void showTrip()
+       StringBuilder sb = new StringBuilder();
+       Iterator<Customer> it = customers.iterator();
+       while(it.hasNext())
+       {
+           if(it.hasNext())
+               sb.append(it.next().toString()+"\n");
+        else
+           sb.append(it.next().toString());
+       }
+           return sb.toString();
+
+       }
+
+        //customers.stream().forEach(System.out::println);
+
+    public String showTrip()
     {
-        tripMap.values().stream().forEach(System.out::println);
+        StringBuilder sb = new StringBuilder();
+        Iterator<Map.Entry<String, Trip>> iterator = tripMap.entrySet().iterator();
+        while(iterator.hasNext())
+        {
+            Map.Entry map = (Map.Entry) iterator.next();
+            if(iterator.hasNext())
+            sb.append(map.getValue()+"\n");
+            else
+                sb.append(map.getValue());
+        }
+
+
+        return sb.toString();
     }
 
     @Override

@@ -38,7 +38,7 @@ public class Test {
         //travelofficepackage.Customer cust = to.findCustomerByName("Jan Kowalski");
         //to.removeCustomer(cust);
         //System.out.println(to.toString());
-        to.showTrip();
+        System.out.printf(to.showTrip());
 
 
 

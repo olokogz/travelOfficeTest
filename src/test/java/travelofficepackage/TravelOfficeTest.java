@@ -38,6 +38,8 @@ public static void createTrip()
     public static void createCustomer()
     {
         customer = new Customer("Anonimowy");
+        customer.setAddress(new Address("Marszalkowska 10", "00-876", "Warszawa"));
+        customer.setTrip(new DomesticTrip(Date.setDate("2018-08-10","-"),Date.setDate("2017-8-15","-"), "Egipt", new BigDecimal(100), new BigDecimal(10)));
     }
     @Test
     public void addCustomer() throws NoSuchFieldException {
@@ -92,9 +94,24 @@ public static void createTrip()
 
     @Test
     public void showCustomers() {
+        String checknull = traveloffice.showCustomers();
+        assertEquals("",checknull);
+        traveloffice.addCustomer(customer);
+        String checkvalue = traveloffice.showCustomers();
+        assertEquals("Imie klienta: AnonimowyAddress{street='Marszalkowska 10'" +
+                ", zip='00-876', city='Warszawa'} Start wycieczki:  Rok: 2018 Miesiac: 8 Dzien: 10" +
+                ", Koniec wycieczki:  Rok: 2017 Miesiac: 8 Dzien: 15" +
+                ", Cel podrozy: Egipt', Koszt podróży: 90}"+"\n",checkvalue);
     }
 
     @Test
     public void showTrip() {
+        String checknull = traveloffice.showTrip();
+        assertEquals("",checknull);
+        traveloffice.addTrip("00",trip);
+        String checkvalue = traveloffice.showTrip();
+        assertEquals(" Start wycieczki:  Rok: 2018 Miesiac: 8 Dzien: 10" +
+                ", Koniec wycieczki:  Rok: 2017 Miesiac: 8 Dzien: 15" +
+                ", Cel podrozy: Egipt', Koszt podróży: 90}",checkvalue);
     }
 }
