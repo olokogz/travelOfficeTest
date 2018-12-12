@@ -89,27 +89,37 @@ public static void createTrip()
 
     @Test
     public void showCustomers() {
+
         String checknull = traveloffice.showCustomers();
-        assertEquals("Imie klienta: AnonimowyAddress{street='Marszalkowska 10'" +
-                ", zip='00-876', city='Warszawa'} Start wycieczki:  Rok: 2018 Miesiac: 8 Dzien: 10" +
-                ", Koniec wycieczki:  Rok: 2017 Miesiac: 8 Dzien: 15, Cel podrozy: Egipt'" +
-                ", Koszt podróży: 90}\n",checknull);
-        /*traveloffice.addCustomer(customer);
-        String checkvalue = traveloffice.showCustomers();
-        assertEquals("Imie klienta: AnonimowyAddress{street='Marszalkowska 10'" +
-                ", zip='00-876', city='Warszawa'} Start wycieczki:  Rok: 2018 Miesiac: 8 Dzien: 10" +
-                ", Koniec wycieczki:  Rok: 2017 Miesiac: 8 Dzien: 15" +
-                ", Cel podrozy: Egipt', Koszt podróży: 90}"+"\n",checkvalue);*/
+        if(!checknull.equals("")) {
+            assertEquals("Imie klienta: AnonimowyAddress{street='Marszalkowska 10'" +
+                    ", zip='00-876', city='Warszawa'} Start wycieczki:  Rok: 2018 Miesiac: 8 Dzien: 10" +
+                    ", Koniec wycieczki:  Rok: 2017 Miesiac: 8 Dzien: 15, Cel podrozy: Egipt'" +
+                    ", Koszt podróży: 90}\n", checknull);
+        }
+        else {
+            assertEquals("",checknull);
+            traveloffice.addCustomer(customer);
+            String checkvalue = traveloffice.showCustomers();
+            assertEquals("Imie klienta: AnonimowyAddress{street='Marszalkowska 10'" +
+                    ", zip='00-876', city='Warszawa'} Start wycieczki:  Rok: 2018 Miesiac: 8 Dzien: 10" +
+                    ", Koniec wycieczki:  Rok: 2017 Miesiac: 8 Dzien: 15" +
+                    ", Cel podrozy: Egipt', Koszt podróży: 90}" + "\n", checkvalue);
+        }
     }
 
     @Test
     public void showTrip() {
         String checknull = traveloffice.showTrip();
-        assertEquals("null",checknull);
-        traveloffice.addTrip("00",trip);
-        String checkvalue = traveloffice.showTrip();
-        assertEquals(" Start wycieczki:  Rok: 2018 Miesiac: 8 Dzien: 10" +
-                ", Koniec wycieczki:  Rok: 2017 Miesiac: 8 Dzien: 15" +
-                ", Cel podrozy: Egipt', Koszt podróży: 90}",checkvalue);
+        if(!checknull.equals("")) {
+            assertEquals("null",checknull);
+            traveloffice.addTrip("00",trip);
+            String checkvalue = traveloffice.showTrip();
+            assertEquals(" Start wycieczki:  Rok: 2018 Miesiac: 8 Dzien: 10" +
+                    ", Koniec wycieczki:  Rok: 2017 Miesiac: 8 Dzien: 15" +
+                    ", Cel podrozy: Egipt', Koszt podróży: 90}",checkvalue);
+        }
+
+
     }
 }
