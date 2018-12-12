@@ -17,18 +17,17 @@ public class TravelOfficeTest {
 
     static Trip trip;
     static Trip trip1;
-@BeforeClass
-public static void createTravelOffice()
-{
-    traveloffice = new TravelOffice();
-}
-@BeforeClass
-public static void createTrip()
-{
-    trip = new DomesticTrip(Date.setDate("2018-08-10","-"),Date.setDate("2017-8-15","-"), "Egipt", new BigDecimal(100), new BigDecimal(10));
 
-
-}
+    @BeforeClass
+    public static void createTravelOffice()
+    {
+        traveloffice = new TravelOffice();
+    }
+    @BeforeClass
+    public static void createTrip()
+    {
+        trip = new DomesticTrip(Date.setDate("2018-08-10","-"),Date.setDate("2017-8-15","-"), "Egipt", new BigDecimal(100), new BigDecimal(10));
+    }
     @BeforeClass
     public static void createCustomer()
     {
