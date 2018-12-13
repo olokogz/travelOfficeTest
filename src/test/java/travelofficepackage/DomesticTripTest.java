@@ -21,6 +21,6 @@ public class DomesticTripTest {
         DomesticTrip trip1 = (DomesticTrip) trip;
         BigDecimal check;
         check = trip.getPrice();
-        assertEquals(check, trip1.getPrice());
+        assertEquals(new BigDecimal(90), trip1.getPrice());
     }
 }
